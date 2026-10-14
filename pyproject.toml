@@ -1,0 +1,5 @@
+[tool.pytest.ini_options]
+pythonpath = ["src"]    # the package lives in src/ and is not pip-installed
+testpaths = ["tests"]   # keeps scripts/test_clone_logic.py (a script) out of collection
+markers = ["slow: loads the real 1.3 GB TrOCR checkpoint (run with: pytest -m slow)"]
+addopts = "-m 'not slow'"

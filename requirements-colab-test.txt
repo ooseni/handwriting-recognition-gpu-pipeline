@@ -1,0 +1,46 @@
+# Local mirror of the Colab GPU runtime, to test Colab code on CPU before it costs
+# GPU time. Python 3.13 and these versions match Colab's runtime of 2026-09-04
+# (github.com/googlecolab/backend-info); torch here is the CPU build.
+#
+#   .venv\Scripts\python -m pip install uv
+#   .venv\Scripts\uv venv --python 3.13 .venv-colab
+#   .venv\Scripts\uv pip install --python .venv-colab\Scripts\python.exe -r requirements-colab-test.txt
+
+-r requirements-colab.txt
+torch==2.11.0
+torchvision==0.26.0
+numpy==2.1.3
+pandas==2.2.3
+pillow==11.3.0
+matplotlib==3.10.0
+tokenizers==0.23.1
+huggingface_hub==1.29.0
+safetensors==0.8.0
+accelerate==1.14.0
+# Preinstalled on Colab, and load-bearing: transformers 5 needs sentencepiece or
+# tiktoken to build TrOCR's tokenizer from vocab.json + merges.txt.
+sentencepiece==0.2.2
+tiktoken==0.14.0
+protobuf==5.29.6
+blobfile==3.3.0
+# Also preinstalled, and probed by transformers/peft/huggingface_hub at runtime, so
+# their presence and versions can change behaviour.
+timm==1.0.29
+scipy==1.16.3
+einops==0.8.2
+diffusers==0.40.0
+torchaudio==2.11.0
+torchcodec==0.11.0
+regex==2025.11.3
+psutil==5.9.5
+requests==2.32.4
+fsspec==2025.12.0
+filelock==3.32.5
+tqdm==4.67.3
+# NOT torchao: Colab preinstalls 0.10, which peft 0.20 rejects -- it refuses to build any
+# LoRA layer. 02_qwenvl uninstalls it, so the mirror matches Colab after that step.
+jiwer==4.0.0
+pytest==9.1.1
+nbclient==0.10.4
+nbformat==5.11.1
+ipykernel

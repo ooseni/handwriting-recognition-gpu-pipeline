@@ -1,0 +1,10 @@
+# Colab / GPU training environment.
+# Colab ships torch, torchvision, numpy, pandas, pillow and matplotlib -- never
+# reinstall those here: a stray torch lands a CPU-only wheel, a stray numpy breaks
+# Colab's compiled packages. Listed: only what we import that Colab lacks or that
+# must not drift, pinned to the versions tested in .venv-colab
+# (requirements-colab-test.txt).
+
+transformers==5.16.1    # Colab's version at testing; pinned so a runtime update can't drift it
+rapidfuzz==3.14.5       # fast Levenshtein for WER/CER
+peft==0.20.0            # LoRA for the Qwen-VL fine-tune; Colab's version at testing

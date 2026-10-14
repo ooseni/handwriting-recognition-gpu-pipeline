@@ -1,0 +1,17 @@
+# Local CPU environment (Windows, Python 3.12 -- NOT 3.14, no torch wheels).
+#   py -3.12 -m venv .venv
+#   .venv\Scripts\python -m pip install -r requirements-local.txt
+#
+# Used for: metric development, CV harness, EDA, submission validation, reports.
+# Model training happens on Colab.
+
+pandas>=2.2
+numpy>=1.26
+pillow>=10.4
+rapidfuzz>=3.9
+jiwer>=3.0
+pyyaml>=6.0
+tqdm>=4.66
+matplotlib>=3.9
+reportlab>=4.2      # scripts/findings_pdf.py
+pytest>=8.3
